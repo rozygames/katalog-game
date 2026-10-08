@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Subtitle Indonesia | Rozy Games</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #121212; color: #e0e0e0; }
+
+/* HEADER TEMA HITAM PEKAT TOTAL */
+.header { background: #000000; color: white; text-align: center; padding: 35px 15px 35px; border-bottom: 2px solid #b80000; }
+.header .logo-container { margin: 0 auto 15px; max-width: 160px; }
+.header .logo-container img { width: 100%; height: auto; display: block; }
+.header p { margin: 10px 0 0; font-size: 15px; font-weight: bold; opacity: .95; letter-spacing: 0.5px; color: #ffffff; }
+
+/* CONTAINER */
+.container { max-width: 1250px; margin: auto; padding: 30px 18px 40px; }
+
+/* GRID */
+.games { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+
+/* CARD TEMA HITAM */
+.card { background: #1e1e1e; border: 1px solid #2d2d2d; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,.5); transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; justify-content: space-between; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 8px 22px rgba(184,0,0,.25); border-color: #b80000; }
+
+/* COVER */
+.cover-wrap { position: relative; }
+.cover { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; background: #2a2a2a; }
+.badge { position: absolute; left: 9px; top: 9px; background: #b80000; color: white; padding: 6px 8px; border-radius: 6px; font-size: 10px; font-weight: bold; letter-spacing: 0.5px; }
+
+/* CONTENT */
+.card-content { padding: 13px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
+
+/* WHATSAPP BUTTON ACCENT */
+.wa-button { display: block; text-align: center; text-decoration: none; background: #16a34a; color: white; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: bold; transition: .2s; box-shadow: 0 2px 6px rgba(22,163,74,.3); }
+.wa-button:hover { background: #12813c; box-shadow: 0 4px 12px rgba(22,163,74,.5); }
+
+/* FOOTER */
+.footer { background: #0a0a0a; color: white; text-align: center; padding: 30px 15px; margin-top: 40px; border-top: 1px solid #2d2d2d; }
+.footer-title { font-size: 20px; font-weight: bold; margin-bottom: 7px; color: #b80000; }
+.footer p { margin: 5px 0; color: #aaa; font-size: 13px; }
+
+/* FLOATING WHATSAPP */
+.floating-wa { position: fixed; right: 18px; bottom: 18px; background: #16a34a; color: white; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 27px; box-shadow: 0 5px 18px rgba(0,0,0,.5); z-index: 100; transition: transform .2s; }
+.floating-wa:hover { transform: scale(1.08); }
+
+/* RESPONSIVE */
+@media (max-width: 1050px) { 
+    .games { grid-template-columns: repeat(4, 1fr); } 
+    .header .logo-container { max-width: 140px; }
+}
+@media (max-width: 700px) {
+    .container { padding: 20px 12px 30px; }
+    .header { padding: 25px 12px; }
+    .header .logo-container { max-width: 120px; }
+    .header p { font-size: 13px; }
+    .games { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .card-content { padding: 10px; }
+    .wa-button { font-size: 12px; padding: 9px 5px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+    <div class="logo-container">
+        <img src="logo.png" alt="Rozy Games Logo" onerror="this.style.display='none';">
+    </div>
+    <p>Game Terupdate Sekota Solok • Terlengkap Se-Sumatra Barat</p>
+</header>
+
+<main class="container">
+    <div class="games" id="games"></div>
+</main>
+
+<footer class="footer">
+    <div class="footer-title">Rozy Games</div>
+    <p>Spesialis Isi Game & Servis PlayStation</p>
+    <p>📍 Kota Solok, Sumatra Barat</p>
+    <p>📱 0812 7063 5111</p>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="floating-wa" href="https://wa.me/6281270635111" target="_blank" title="WhatsApp Rozy Games">💬</a>
+
+<script>
+const games = [
+    ["A Plague Tale Innocence", "a-plague-tale-innocence.jpg"],
+    ["A Way Out", "a-way-out.jpg"],
+    ["Afterimage", "afterimage.jpg"],
+    ["Assassins Creed IV Black Flag Gold Edition", "assassins-creed-iv-black-flag-gold-edition.jpg"],
+    ["Assassins Creed Mirage", "assassins-creed-mirage.jpg"],
+    ["Assassins Creed Odyssey", "assassins-creed-odyssey.jpg"],
+    ["Assassins Creed Origins Deluxe Edition", "assassins-creed-origins-deluxe-edition.jpg"],
+    ["Assassins Creed Syndicate", "assassins-creed-syndicate.jpg"],
+    ["Assassins Creed the Ezio Collection", "assassins-creed-the-ezio-collection.jpg"],
+    ["Assassins Creed Unity", "assassins-creed-unity.jpg"],
+    ["Assassins Creed Valhalla Ultimate Edition", "assassins-creed-valhalla-ultimate-edition.jpg"],
+    ["Bayonetta", "bayonetta.jpg"],
+    ["Bloodborne Game of the Year Edition", "bloodborne-game-of-the-year-edition.jpg"],
+    ["Control Ultimate Edition", "control-ultimate-edition.jpg"],
+    ["Cyberpunk 2077", "cyberpunk-2077.jpg"],
+    ["Dark Souls Remastered", "dark-souls-remastered.jpg"],
+    ["Days Gone", "days-gone.jpg"],
+    ["Deaths Door", "deaths-door.jpg"],
+    ["Devil May Cry 5 Deluxe Edition", "devil-may-cry-5-deluxe-edition.jpg"],
+    ["Elden Ring", "elden-ring.jpg"],
+    ["Evil West", "evil-west.jpg"],
+    ["Ghost of Tsushima", "ghost-of-tsushima.jpg"],
+    ["God of War 2018", "god-of-war-2018.jpg"],
+    ["God of War III Remastered", "god-of-war-iii-remastered.jpg"],
+    ["God of War Ragnarok Valhalla", "god-of-war-ragnarok-valhalla.jpg"],
+    ["Grand Theft Auto San Andreas The Definitive Edition", "grand-theft-auto-san-andreas-the-definitive-edition.jpg"],
+    ["Grand Theft Auto III The Definitive Edition", "grand-theft-auto-iii-the-definitive-edition.jpg"],
+    ["Grand Theft Auto Vice City The Definitive Edition", "grand-theft-auto-vice-city-the-definitive-edition.jpg"],
+    ["Grand Theft Auto V", "grand-theft-auto-v.jpg"],
+    ["Green Hell", "green-hell.jpg"],
+    ["Harvest Moon A Wonderful Life Special Edition", "harvest-moon-a-wonderful-life-special-edition.jpg"],
+    ["Hogwarts Legacy", "hogwarts-legacy.jpg"],
+    ["Horizon Zero Dawn Complete Edition", "horizon-zero-dawn-complete-edition.jpg"],
+    ["It Takes Two", "it-takes-two.jpg"],
+    ["Judgment", "judgment.jpg"],
+    ["LEGO City Undercover", "lego-city-undercover.jpg"],
+    ["Like A Dragon Gaiden The Man Who Erased His Name", "like-a-dragon-gaiden-the-man-who-erased-his-name.jpg"],
+    ["Marvels Spider Man", "marvels-spider-man.jpg"],
+    ["Mortal Kombat 11 Ultimate Edition", "mortal-kombat-11-ultimate-edition.jpg"],
+    ["Naruto x Boruto Ultimate Ninja Storm Connections", "naruto-x-boruto-ultimate-ninja-storm-connections.jpg"],
+    ["Nier Automata", "nier-automata.jpg"],
+    ["One Piece Odyssey", "one-piece-odyssey.jpg"],
+    ["Persona 3 Portable", "persona-3-portable.jpg"],
+    ["Resident Evil 2 Remake", "resident-evil-2-remake.jpg"],
+    ["Resident Evil 3 Remake", "resident-evil-3-remake.jpg"],
+    ["Resident Evil 4 Remake", "resident-evil-4-remake.jpg"],
+    ["Resident Evil 5", "resident-evil-5.jpg"],
+    ["Resident Evil 6", "resident-evil-6.jpg"],
+    ["Resident Evil 7 Biohazard Gold Edition", "resident-evil-7-biohazard-gold-edition.jpg"],
+    ["Resident Evil Village Gold Edition", "resident-evil-village-gold-edition.jpg"],
+    ["Rock Band 4 Lagu Indonesia", "rock-band-4-lagu-indonesia.jpg"],
+    ["Sekiro Shadows Die Twice", "sekiro-shadows-die-twice.jpg"],
+    ["Sifu", "sifu.jpg"],
+    ["Sleeping Dogs Definitive Edition", "sleeping-dogs-definitive-edition.jpg"],
+    ["SpongeBob SquarePants Battle For Bikini Bottom Rehydrated", "spongebob-squarepants-battle-for-bikini-bottom-rehydrated.jpg"],
+    ["Stray", "stray.jpg"],
+    ["The Callisto Protocol", "the-callisto-protocol.jpg"],
+    ["The Evil Within 2", "the-evil-within-2.jpg"],
+    ["The Last of Us Part II", "the-last-of-us-part-ii.jpg"],
+    ["The Last of US Remastered", "the-last-of-us-remastered.jpg"],
+    ["The Witcher 3 Game of the Year Edition", "the-witcher-3-game-of-the-year-edition.jpg"],
+    ["Tom Clancys Ghost Recon Wildlands", "tom-clancys-ghost-recon-wildlands.jpg"],
+    ["Tomb Raider I-III Remastered", "tomb-raider-i-iii-remastered.jpg"],
+    ["Ultra Age", "ultra-age.jpg"],
+    ["Uncharted 4 A Thiefs End", "uncharted-4-a-thiefs-end.jpg"],
+    ["Uncharted The Lost Legacy", "uncharted-the-lost-legacy.jpg"],
+    ["Uncharted The Nathan Drake Collection", "uncharted-the-nathan-drake-collection.jpg"],
+    ["Visage", "visage.jpg"],
+    ["Watch Dogs Complete Edition", "watch-dogs-complete-edition.jpg"],
+    ["Watch Dogs 2 Gold Edition", "watch-dogs-2-gold-edition.jpg"]
+];
+
+const gamesContainer = document.getElementById("games");
+
+function renderGames() {
+    gamesContainer.innerHTML = "";
+
+    games.forEach(game => {
+        const namaGame = game[0];
+        const fileGambar = game[1];
+        
+        const textPesan = encodeURIComponent("Halo Rozy Games, saya mau isi game PS4 Sub Indo: " + namaGame);
+        const cardLink = "https://wa.me/6281270635111?text=" + textPesan;
+
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+            <div class="cover-wrap">
+                <img class="cover" src="covers/${fileGambar}" alt="${namaGame}" onerror="this.src='https://placehold.co'">
+                <span class="badge">SUB INDO</span>
+            </div>
+            <div class="card-content">
+                <a href="${cardLink}" target="_blank" class="wa-button">Order via WA</a>
+            </div>
+        `;
+        gamesContainer.appendChild(card);
+    });
+}
+
+renderGames();
+</script>
+</body>
+</html>
